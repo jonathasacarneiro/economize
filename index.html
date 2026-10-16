@@ -48,6 +48,15 @@
     footer { text-align: center; padding: 20px; color: #53644c; }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  const SUPABASE_URL = "https://mxjaszrffrcegmrhqlsj.supabase.co/rest/v1/";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_1Pe9-LURCcYCcZBQ631xkg_vuaWTkJe";
+
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+  </script>
 </head>
 <body>
   <header>
