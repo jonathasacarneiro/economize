@@ -57,6 +57,25 @@
     SUPABASE_PUBLISHABLE_KEY
   );
   </script>
+  <script>
+async function carregarOfertas() {
+  const { data, error } = await supabaseClient
+    .from('ofertas')
+    .select('id, nome_produto, preco, nome_mercado, categoria')
+    .eq('status', 'aprovada')
+    .order('preco', { ascending: true })
+    .limit(50);
+
+  if (error) {
+    console.error('Erro ao carregar ofertas:', error.message);
+    return;
+  }
+
+  console.log('Ofertas aprovadas:', data);
+}
+
+carregarOfertas();
+</script>
 </head>
 <body>
   <header>
