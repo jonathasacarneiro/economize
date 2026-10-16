@@ -59,6 +59,9 @@
   </script>
   <script>
 async function carregarOfertas() {
+  const lista = document.getElementById('lista-ofertas');
+  lista.textContent = 'Carregando ofertas...';
+
   const { data, error } = await supabaseClient
     .from('ofertas')
     .select('id, nome_produto, preco, nome_mercado, categoria')
@@ -67,11 +70,39 @@ async function carregarOfertas() {
     .limit(50);
 
   if (error) {
-    console.error('Erro ao carregar ofertas:', error.message);
+    lista.textContent = 'Não foi possível carregar as ofertas.';
     return;
   }
 
-  console.log('Ofertas aprovadas:', data);
+  lista.replaceChildren();
+
+  if (!data || data.length === 0) {
+    lista.textContent = 'Nenhuma oferta aprovada no momento.';
+    return;
+  }
+
+  data.forEach((oferta) => {
+    const item = document.createElement('div');
+    item.style.padding = '12px';
+    item.style.marginBottom = '10px';
+    item.style.border = '1px solid #ddd';
+    item.style.borderRadius = '8px';
+
+    const produto = document.createElement('h3');
+    produto.textContent = oferta.nome_produto;
+
+    const mercado = document.createElement('p');
+    mercado.textContent = oferta.nome_mercado;
+
+    const preco = document.createElement('strong');
+    preco.textContent = Number(oferta.preco).toLocaleString(
+      'pt-BR',
+      { style: 'currency', currency: 'BRL' }
+    );
+
+    item.append(produto, mercado, preco);
+    lista.appendChild(item);
+  });
 }
 
 carregarOfertas();
