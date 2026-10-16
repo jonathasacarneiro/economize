@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#477a39">
+  <title>ECONOMIZE | Ofertas de Parintins</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f8ef;
+      color: #263522;
+    }
+    header {
+      background: #477a39;
+      color: white;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 30px; }
+    header p { margin-bottom: 0; }
+    main { max-width: 650px; margin: auto; padding: 18px; }
+    .busca, .painel {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px #0000000d;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    input, select { border: 1px solid #cbd8c3; }
+    button {
+      background: #477a39;
+      color: white;
+      border: 0;
+      font-weight: bold;
+    }
+    .aviso { color: #53644c; font-size: 14px; }
+    footer { text-align: center; padding: 20px; color: #53644c; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐷 ECONOMIZE</h1>
+    <p>Seu dinheiro vale mais em Parintins!</p>
+  </header>
+
+  <main>
+    <section class="busca">
+      <h2>🔎 Encontre ofertas</h2>
+      <label for="produto">Qual produto você procura?</label>
+      <input id="produto" type="search" placeholder="Ex.: arroz, café, sabão">
+
+      <label for="categoria">Categoria</label>
+      <select id="categoria">
+        <option value="">Todas as categorias</option>
+        <option>Alimentos</option>
+        <option>Bebidas</option>
+        <option>Limpeza</option>
+        <option>Higiene</option>
+      </select>
+      <button type="button" onclick="alert('As ofertas serão exibidas quando conectarmos o banco de dados.')">
+        Buscar ofertas
+      </button>
+    </section>
+
+    <section class="painel">
+      <h2>🏆 Top ofertas</h2>
+      <p>Aqui ficarão as melhores ofertas dos mercados locais.</p>
+      <p class="aviso">As ofertas serão publicadas após aprovação e conferência.</p>
+    </section>
+
+    <section class="painel">
+      <h2>🏪 É comerciante?</h2>
+      <p>Em breve você poderá enviar ofertas do seu estabelecimento.</p>
+    </section>
+  </main>
+
+  <footer>ECONOMIZE · Parintins - AM</footer>
+</body>
+</html>
